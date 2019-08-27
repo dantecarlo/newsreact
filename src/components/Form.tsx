@@ -1,15 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component, ChangeEvent } from 'react'
 
-export default class Form extends Component {
+interface IProps {
+  getNews: (category?: string) => Promise<void>
+}
+
+export default class Form extends Component<IProps> {
+  state = {
+    category: 'general',
+  }
+
+  handleCategory = (category: ChangeEvent<HTMLSelectElement>) => {
+    this.setState(
+      {
+        category: category.target.value,
+      },
+      () => {
+        this.props.getNews(this.state.category)
+      },
+    )
+  }
+
   render() {
     return (
       <div className="search row">
-        <div className="col s12 m8 offset-s2">
+        <div className="col s12 m8 offset-m2">
           <form>
             <h2>Find News by Category</h2>
 
-            <div className="input-field col s12 m8">
-              <select>
+            <div className="input-field col s12 offset-m2 m8">
+              <select onChange={this.handleCategory}>
                 <option value="general">General</option>
                 <option value="business">Business</option>
                 <option value="entertainment">Entertainment</option>
