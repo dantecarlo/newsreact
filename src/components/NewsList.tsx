@@ -2,10 +2,10 @@ import React from 'react'
 import News from './News'
 
 interface Props {
-  newsList: News[]
+  newsList: NewsI[]
 }
 
-interface News {
+interface NewsI {
   author: string
   content: string
   description: string
