@@ -2,7 +2,7 @@ import React from 'react'
 import News from './News'
 
 interface IProps {
-  newsList: object[]
+  newsList: INews[]
 }
 
 interface INews {
@@ -16,11 +16,9 @@ interface INews {
   urlToImage: string
 }
 
-type INewsKeys = keyof INews
-
 const NewsList = ({ newsList }: IProps) => (
   <div className="row">
-    {newsList.map((news: any) => (
+    {newsList.map(news => (
       <News key={news.url} news={news}></News>
     ))}
   </div>

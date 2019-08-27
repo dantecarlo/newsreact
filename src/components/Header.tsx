@@ -9,8 +9,6 @@ const Header = ({ title }: IProps) => (
     <nav className="nav-wrapper light-blue darken-3">
       <a className="brand-logo center">{title}</a>
     </nav>
-
-    <div className="container white news-container"></div>
   </div>
 )
 
