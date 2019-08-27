@@ -10,10 +10,15 @@ interface INews {
   content: string
   description: string
   publishedAt: string
-  source: object
+  source: ISource
   title: string
   url: string
   urlToImage: string
+}
+
+interface ISource {
+  id: string
+  name: string
 }
 
 const NewsList = ({ newsList }: IProps) => (

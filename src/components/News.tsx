@@ -9,10 +9,15 @@ interface INews {
   content: string
   description: string
   publishedAt: string
-  source: object
+  source: ISource
   title: string
   url: string
   urlToImage: string
+}
+
+interface ISource {
+  id: string
+  name: string
 }
 
 const News = ({ news }: IProps) => {
@@ -26,13 +31,18 @@ const News = ({ news }: IProps) => {
     url,
     urlToImage,
   } = news
+
+  const image = urlToImage ? (
+    <div className="card-image">
+      <img src={urlToImage} alt={title} />
+      <span className="card-title">{source.name}</span>
+    </div>
+  ) : null
+
   return (
     <div className="col s12 m6 l4">
       <div className="card">
-        <div className="card-image">
-          <img src={urlToImage} alt={title} />
-        </div>
-
+        {image}
         <div className="card-content">
           <h3>{title}</h3>
           <p>{description} </p>
