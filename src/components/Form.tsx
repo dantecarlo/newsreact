@@ -1,10 +1,10 @@
 import React, { Component, ChangeEvent } from 'react'
 
-interface IProps {
+interface Props {
   getNews: (category?: string) => Promise<void>
 }
 
-export default class Form extends Component<IProps> {
+export default class Form extends Component<Props> {
   state = {
     category: 'general',
   }

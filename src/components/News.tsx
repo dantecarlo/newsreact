@@ -1,36 +1,27 @@
 import React from 'react'
 
-interface IProps {
-  news: INews
+interface Props {
+  news: News
 }
 
-interface INews {
+interface News {
   author: string
   content: string
   description: string
   publishedAt: string
-  source: ISource
+  source: Source
   title: string
   url: string
   urlToImage: string
 }
 
-interface ISource {
+interface Source {
   id: string
   name: string
 }
 
-const News = ({ news }: IProps) => {
-  const {
-    author,
-    content,
-    description,
-    publishedAt,
-    source,
-    title,
-    url,
-    urlToImage,
-  } = news
+const News = ({ news }: Props) => {
+  const { description, source, title, url, urlToImage } = news
 
   const image = urlToImage ? (
     <div className="card-image">

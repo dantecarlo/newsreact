@@ -1,27 +1,27 @@
 import React from 'react'
 import News from './News'
 
-interface IProps {
-  newsList: INews[]
+interface Props {
+  newsList: News[]
 }
 
-interface INews {
+interface News {
   author: string
   content: string
   description: string
   publishedAt: string
-  source: ISource
+  source: Source
   title: string
   url: string
   urlToImage: string
 }
 
-interface ISource {
+interface Source {
   id: string
   name: string
 }
 
-const NewsList = ({ newsList }: IProps) => (
+const NewsList = ({ newsList }: Props) => (
   <div className="row">
     {newsList.map(news => (
       <News key={news.url} news={news}></News>
