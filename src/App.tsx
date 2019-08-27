@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import Header from './components/Header'
+import NewsList from './components/NewsList'
 
 export default class App extends Component {
   state = {
-    news: [],
+    newsList: [],
   }
 
   componentDidMount() {
@@ -15,13 +16,17 @@ export default class App extends Component {
     const res = await fetch(url)
     const news = await res.json()
 
-    this.setState({ news: news.articles })
+    this.setState({ newsList: news.articles })
   }
 
   render() {
     return (
       <Fragment>
         <Header title="React new API"></Header>
+
+        <div className="container white news-container">
+          <NewsList newsList={this.state.newsList}></NewsList>
+        </div>
       </Fragment>
     )
   }
