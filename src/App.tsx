@@ -13,7 +13,8 @@ export default class App extends Component {
   }
 
   getNews = async (category = 'general') => {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=e11830532bb1419cbc1de4f55d294626`
+    const apiKey = process.env.REACT_APP_WEATHER_API
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`
     const res = await fetch(url)
     const news = await res.json()
 
